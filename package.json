@@ -2,9 +2,11 @@
   "name": "skelt",
   "version": "0.0.0",
   "description": "make your own skeltons for your applications ",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production babel src --out-dir lib --source-maps inline",
+    "watch": "NODE_ENV=development babel src --out-dir lib --watch --source-maps inline",
+    "test": "NODE_ENV=development mocha --compilers js:babel-register test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,16 @@
     "url": "https://github.com/RyosukeCla/templar/issues"
   },
   "homepage": "https://github.com/RyosukeCla/skelt#readme",
-  "preferGlobal": true,
   "bin": {
     "skelt": "bin/skelt"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "mocha": "^3.2.0",
+    "power-assert": "^1.4.2"
   }
 }
