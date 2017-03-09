@@ -6,3 +6,5 @@
 ███████║██║  ██╗███████╗███████╗██║
 ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 </pre>
+
+![build status](https://travis-ci.org/RyosukeCla/skelt.svg?branch=master)
