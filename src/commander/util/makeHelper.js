@@ -8,8 +8,6 @@ const LOGO =
       ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 `;
 
-
-
 export const makeHelper = function(prefix, commandName, commands) {
   let res = `
 ${LOGO}
