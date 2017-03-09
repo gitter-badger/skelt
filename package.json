@@ -1,0 +1,27 @@
+{
+  "name": "skelt",
+  "version": "0.0.0",
+  "description": "make your own skeltons for your applications ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyosukeCla/skelt.git"
+  },
+  "keywords": [
+    "template",
+    "engine"
+  ],
+  "author": "Ryosuke Suzuki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyosukeCla/templar/issues"
+  },
+  "homepage": "https://github.com/RyosukeCla/skelt#readme",
+  "preferGlobal": true,
+  "bin": {
+    "skelt": "bin/skelt"
+  }
+}
