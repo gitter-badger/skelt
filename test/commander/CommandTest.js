@@ -3,21 +3,24 @@ import Command from "../../src/commander/Command.js";
 const com = new Command(
   "command",
   {
-  delete: {
-    process: function() {
-      console.log("delete command");
+    delete: {
+      process: function(co) {
+        console.log("delete command");
+        console.log("aiueo " + co.commandName);
+      },
+      help: "delete method",
+      alt: "-d",
     },
-    help: "delete method",
-    alt: "-d",
-  },
-  make: {
-    process: function() {
-      console.log("make command");
+    make: {
+      process: function() {
+        console.log("make command");
+      },
+      help: "make method",
+      alt: "-m",
     },
-    help: "make method",
-    alt: "-m",
   },
-});
+  "skelt"
+);
 
 try {
   com.doProcess("delete");

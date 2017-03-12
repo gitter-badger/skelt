@@ -2,7 +2,24 @@
   "extends": ["eslint:recommended"],
   "plugins": [],
   "parserOptions": {},
-  "env": {"browser": true},
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
   "globals": {},
-  "rules": {}
+  "rules": {
+    "no-console": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
 }

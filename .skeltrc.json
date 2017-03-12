@@ -1,0 +1,40 @@
+{
+  "root": "./app",
+  "templateDir": "./skelt_emplate",
+  "commandBuilder": {
+    "create": {
+      "commandName": "create",
+      "alt": "-c",
+      "help": "create template",
+      "nextCommand": {
+        "reducer": {
+          "rule": "rule1"
+        },
+        "actions": {
+          "rule": "rule2"
+        }
+      }
+    },
+    "delete": {
+      "alt": "-d"
+    }
+  },
+  "ruleBuilder": {
+    "rule1": {
+      "find": {
+        "target": "../reducer/aiueo",
+        "then": {
+          "map": {
+            "target": [{}],
+            "then": {
+
+            }
+          }
+        }
+      }
+    },
+    "rule2": {
+
+    }
+  }
+}

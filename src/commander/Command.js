@@ -4,21 +4,22 @@ export default class Command {
   /*
     {
       make: {
-        process: func,
+        process: func(Command),
         help: "",
         alt: "-m",
       },
       delete: {
-        process: func,
+        process: func(Command),
         help: "",
         alt: "-d",
       }
     }
   */
-  constructor(commandName, commands) {
+  constructor(commandName, commands, prefix = "") {
     this.commandName = commandName;
     this.commands = commands;
     this.input = "";
+    this.prefix = prefix;
   }
 
   isValidCommand(input) {
@@ -37,10 +38,9 @@ export default class Command {
 
   doProcess(input) {
     if (this.isValidCommand(input)) {
-      this.commands[this.input].process();
+      this.commands[this.input].process(this);
     } else {
-      throw new Error(makeHelper("Skelt", this.commandName, this.commands));
-      //console.log(makeHelper("skelt", this.commands));
+      throw new Error(makeHelper(this.prefix, this.commandName, this.commands));
     }
   }
 }
