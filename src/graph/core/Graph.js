@@ -1,16 +1,24 @@
 export default class Graph {
   constructor() {
-    this.nodes = {};
+    this._nodes = {};
   }
 
   // accessor : Accessor type
   // node     : Node     type
   addNode(accessor, node) {
-    this.nodes[accessor] = node;
+    this._nodes[accessor.uuid] = node;
   }
 
-  execute(accessor) {
-    console.log(`Execute ${accessor.id}`);
-    this.nodes[accessor].execute();
+  getNode(accessor) {
+    return this._nodes[accessor.uuid];
+  }
+
+  execute(accessor, verbose = false) {
+    this._nodes[accessor.uuid].execute();
+
+    if (verbose == true) {
+      console.log(`Executed ${accessor.id}`);
+      console.log(`Value : ${this._nodes[accessor.uuid].data.value}`);
+    }
   }
 }

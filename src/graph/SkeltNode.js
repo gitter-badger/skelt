@@ -1,14 +1,18 @@
 export default class SkeltNode {
   constructor({accessor, skeltGraph}) {
-    this.accessor = accessor;
-    this.skeltGraph = skeltGraph;
+    this._accessor = accessor;
+    this._skeltGraph = skeltGraph;
   }
 
   get accessor() {
-    return this.accessor;
+    return this._accessor;
+  }
+
+  getValue() {
+    return this._skeltGraph.getValue(this);
   }
 
   execute() {
-    this.skeltGraph.execute(this);
+    this._skeltGraph.execute(this);
   }
 }
