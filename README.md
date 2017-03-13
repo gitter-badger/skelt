@@ -7,7 +7,7 @@
 ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 </pre>
 
-![build status](https://travis-ci.org/RyosukeCla/skelt.svg?branch=master)
+![[build status](https://travis-ci.org/RyosukeCla/skelt)](https://travis-ci.org/RyosukeCla/skelt.svg?branch=master)
 
 ## Your original template builder CLI made easy
 
