@@ -57,11 +57,28 @@ export const SkeltGraphTest = describe('SkeltGraph test', function() {
   });
 
   describe('unix test', function() {
-    const sgraph = new SkeltGraph();
+    it('child process', function() {
+      const sgraph = new SkeltGraph();
 
-    let a = sgraph.constant("mkdir aiueo");
-    let b = sgraph.childProcess(a);
-    b.execute();
+      let a = sgraph.constant("ls -lha");
+      let b = sgraph.childProcess(a);
+      b.execute();
+    });
+  });
+
+  describe('playground', function() {
+    it ('complex graph', function() {
+      const sg = new SkeltGraph();
+
+      let touch = sg.constant('ls');
+      let text = sg.constant('-lha');
+      let b = sg.constant(' ');
+      let command = sg.add(touch, b);
+      command = sg.add(command, text);
+
+      let cp = sg.childProcess(command);
+      cp.execute();
+    });
 
   });
 });
