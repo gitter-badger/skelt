@@ -7,8 +7,10 @@ import SkeltNode from './SkeltNode';
 
 import Constant from './states/basic/Constant';
 import Variable from './states/basic/Variable';
+import Add from './states/basic/Add';
 
 import {StringOperation} from './states/string';
+import {UnixOperation} from './states/unix';
 
 export default class SkeltGraph {
   constructor() {
@@ -66,6 +68,15 @@ export default class SkeltGraph {
     });
   }
 
+  add(a, b, id = "add") {
+    const dataType = this.graph.getNode(a.accessor).state.dataType;
+    return this._register({
+      id: id,
+      state: new Add(dataType),
+      children: [a, b]
+    });
+  }
+
 
   // ===========================================
   //  String Nodes
@@ -116,6 +127,66 @@ export default class SkeltGraph {
       children: [str, from, to],
     });
   }
+
+  match(str, regex, id = "match") {
+    return this._register({
+      id: id,
+      state: StringOperation.Match,
+      children: [str, regex],
+    });
+  }
+
+  search(str, regex, id = "search") {
+    return this._register({
+      id: id,
+      state: StringOperation.Search,
+      children: [str, regex],
+    });
+  }
+
+  split(str, separator, limit = null, id = "split") {
+    if (limit == null) {
+      return this._register({
+        id: id,
+        state: StringOperation.Split,
+        children: [str, separator],
+      });
+    }
+    return this._register({
+      id: id,
+      state: StringOperation.Split,
+      children: [str, separator, limit],
+    });
+  }
+
+  toLowerCase(str, id = "toLowerCase") {
+    return this._register({
+      id: id,
+      state: StringOperation.ToLowerCase,
+      children: [str],
+    });
+  }
+
+  toUpperCase(str, id = "toUpperCase") {
+    return this._register({
+      id: id,
+      state: StringOperation.ToUpperCase,
+      children: [str],
+    });
+  }
+
+  // ===========================================
+  //  Unix Nodes
+  // ===========================================
+
+  childProcess(str, id = "childProcess") {
+    return this._register({
+      id: id,
+      state: UnixOperation.ChildProcess,
+      children: [str],
+    });
+  }
+
 
 
   getValue(skeltNode) {

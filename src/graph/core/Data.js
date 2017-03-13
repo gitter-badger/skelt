@@ -24,6 +24,9 @@ export const DataTypes = {
   boolean: 'boolean',
   function: 'function',
   regex: 'regex',
+  array: 'array',
+  unknown: 'unknown',
+  undefined: 'undefined',
 }
 
 export const DataTypeOf = function(value) {
@@ -32,6 +35,8 @@ export const DataTypeOf = function(value) {
   if (typeof value === 'boolean') return DataTypes.boolean;
   if (typeof value === 'function') return DataTypes.function;
   if (value instanceof RegExp) return DataTypes.regex;
+  if (value instanceof Array) return DataTypes.array;
+  return DataTypes.undefined;
 }
 
 export class DataTypeError extends Error {
