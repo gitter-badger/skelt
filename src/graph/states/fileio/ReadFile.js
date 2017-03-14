@@ -7,7 +7,7 @@ export default class ReadFile extends State {
   constructor() {
     super(
       makeInvalidMessage("ReadFile", ["path(str)"]),
-      DataTypes.buffer
+      DataTypes.string
     );
   }
 
@@ -23,7 +23,8 @@ export default class ReadFile extends State {
 
   process(childrenNode) {
     const path = childrenNode[0].data.value;
-    const res = fs.readFileSync(path)
+    let res = fs.readFileSync(path);
+    res = res.toString();
 
     return new Data(res, this.dataType);
   }

@@ -67,6 +67,11 @@ export default class SkeltGraph {
         state: new Constant("-"),
         children: [],
       }),
+      newLine: this._register({
+        id: "newLine",
+        state: new Constant("\n"),
+        children: [],
+      }),
     }
   }
 
