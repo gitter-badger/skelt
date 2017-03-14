@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <img src="./skelt.svg"/>
+  <img src="./skelt.svg" width="100%" height="144"/>
 </div>
 
 [![build status](https://travis-ci.org/RyosukeCla/skelt.svg?branch=master)](https://travis-ci.org/RyosukeCla/skelt)
