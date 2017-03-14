@@ -2,7 +2,9 @@ export default class Data {
 
   constructor(value, dataType = null) {
     if (dataType != null && value != null && DataTypeOf(value) != dataType) {
-      throw new DataTypeError(dataType, DataTypeOf(value));
+      if (dataType != DataTypes.any) {
+        throw new DataTypeError(dataType, DataTypeOf(value));
+      }
     }
 
     this._value = value;
