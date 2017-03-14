@@ -24,6 +24,13 @@ export default class State {
     return true;
   }
 
+  execute(children) {
+    for (let i in children) {
+      children[i].execute();
+    }
+    return this.process(children);
+  }
+
   // Do override
   // Args: childrenNode
   // Return: Data type
@@ -45,7 +52,9 @@ export const isValidDataTypes = function(childrenNode, dataTypes) {
   const n = childrenNode.length;
   for (let i = 0; i < n; i++) {
     if (childrenNode[i].state.dataType != dataTypes[i]) {
-      return false;
+      if (dataTypes[i] != DataTypes.any) {
+        return false;
+      }
     }
   }
   return true;

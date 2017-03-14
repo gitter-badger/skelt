@@ -24,9 +24,6 @@ export default class Node {
   }
 
   execute() {
-    for (let i in this._children) {
-      this._children[i].execute();
-    }
-    this._data = this._state.process(this._children);
+    this._data = this._state.execute(this._children);
   }
 }

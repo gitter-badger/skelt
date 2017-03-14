@@ -11,13 +11,15 @@ import Add from './states/basic/Add';
 
 import {StringOperation} from './states/string';
 import {UnixOperation} from './states/unix';
+import {LogicOperation} from './states/logic';
 
 export default class SkeltGraph {
   constructor() {
     this.graph = new Graph();
+    this._registerUtilNodes();
   }
 
-  // regist node and return SkeltNode
+  // register node and return SkeltNode
   _register({id, state, children}) {
     const n = children.length;
     let childrenNode = [];
@@ -51,7 +53,22 @@ export default class SkeltGraph {
   // ===========================================
   //  Util Nodes
   // ===========================================
-  
+
+  _registerUtilNodes() {
+    this.utilNodes = {
+      space: this._register({
+        id: "space",
+        state: new Constant(" "),
+        children: [],
+      }),
+      hyphen: this._register({
+        id: "hypen",
+        state: new Constant("-"),
+        children: [],
+      }),
+    }
+  }
+
 
   // ===========================================
   //  Basic Nodes
@@ -189,6 +206,92 @@ export default class SkeltGraph {
       id: id,
       state: UnixOperation.ChildProcess,
       children: [str],
+    });
+  }
+
+  // ===========================================
+  //  Logic Nodes
+  // ===========================================
+
+  // if a == true, then b will be excuted and return b's value.
+  // Or return false.
+  if(a, b, id = "if") {
+    return this._register({
+      id: id,
+      state: LogicOperation.If,
+      children: [a, b],
+    });
+  }
+
+  and(a, b, id = "and") {
+    return this._register({
+      id: id,
+      state: LogicOperation.And,
+      children: [a, b],
+    });
+  }
+
+  or(a, b, id = "or") {
+    return this._register({
+      id: id,
+      state: LogicOperation.Or,
+      children: [a, b],
+    });
+  }
+
+  not(a, id = "not") {
+    return this._register({
+      id: id,
+      state: LogicOperation.Not,
+      children: [a],
+    });
+  }
+
+  equal(a, b, id = "equal") {
+    return this._register({
+      id: id,
+      state: LogicOperation.Equal,
+      children: [a, b],
+    });
+  }
+
+  notEqual(a, b, id = "notEqual") {
+    return this._register({
+      id: id,
+      state: LogicOperation.NotEqual,
+      children: [a, b],
+    });
+  }
+
+  gt(a, b, id = "gt") {
+    return this._register({
+      id: id,
+      state: LogicOperation.GT,
+      children: [a, b],
+    });
+  }
+
+  gte(a, b, id = "gte") {
+    return this._register({
+      id: id,
+      state: LogicOperation.GTE,
+      children: [a, b],
+    });
+  }
+
+  lt(a, b, id = "lt") {
+    return this._register({
+      id: id,
+      state: LogicOperation.LT,
+      children: [a, b],
+    });
+  }
+
+  lte(a, b, id = "lte") {
+    return this._register({
+      id: id,
+      state: LogicOperation.LTE,
+      children: [a, b],
     });
   }
 

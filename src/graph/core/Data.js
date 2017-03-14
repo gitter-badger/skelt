@@ -27,6 +27,7 @@ export const DataTypes = {
   array: 'array',
   unknown: 'unknown',
   undefined: 'undefined',
+  any: 'any',
 }
 
 export const DataTypeOf = function(value) {
