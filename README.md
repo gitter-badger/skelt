@@ -1,8 +1,13 @@
-<div style="text-align: center;">
-  <img src="./skelt.svg" width="100%" height="144"/>
-</div>
+<p align="center">
+  <img src="https://cdn.rawgit.com/RyosukeCla/skelt/51777efe/skelt.svg" width="100%" height="200"/>
+  
+  <a href="https://travis-ci.org/RyosukeCla/skelt" align="center">
+    <img src="https://travis-ci.org/RyosukeCla/skelt.svg?branch=master" width="100"/>
+  </a>
+</p>
 
 [![build status](https://travis-ci.org/RyosukeCla/skelt.svg?branch=master)](https://travis-ci.org/RyosukeCla/skelt)
+
 
 ## Your original template builder CLI made easy
 
