@@ -1,11 +1,6 @@
-<pre>
-███████╗██╗  ██╗███████╗██╗  ████████╗
-██╔════╝██║ ██╔╝██╔════╝██║  ╚══██╔══╝
-███████╗█████╔╝ █████╗  ██║     ██║
-╚════██║██╔═██╗ ██╔══╝  ██║     ██║
-███████║██║  ██╗███████╗███████╗██║
-╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
-</pre>
+<div style="text-align: center;">
+  <img src="./skelt.svg"/>
+</div>
 
 [![build status](https://travis-ci.org/RyosukeCla/skelt.svg?branch=master)](https://travis-ci.org/RyosukeCla/skelt)
 
