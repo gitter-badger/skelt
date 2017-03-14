@@ -122,6 +122,17 @@ export const SkeltGraphTest = describe('SkeltGraph test', function() {
 
   });
 
+  describe('fileio test', function() {
+    it('read file', function() {
+      const sg = new SkeltGraph();
+
+      let a = sg.constant("./README.md");
+      let b = sg.readFile(a);
+      b.execute();
+      // console.log(b.getValue().toString());
+    });
+  });
+
   describe('playground', function() {
     it ('complex graph', function() {
       const sg = new SkeltGraph();

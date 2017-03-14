@@ -27,6 +27,7 @@ export const DataTypes = {
   function: 'function',
   regex: 'regex',
   array: 'array',
+  buffer: 'buffer',
   unknown: 'unknown',
   undefined: 'undefined',
   any: 'any',
@@ -39,6 +40,7 @@ export const DataTypeOf = function(value) {
   if (typeof value === 'function') return DataTypes.function;
   if (value instanceof RegExp) return DataTypes.regex;
   if (value instanceof Array) return DataTypes.array;
+  if (value instanceof Buffer) return DataTypes.buffer;
   return DataTypes.undefined;
 }
 

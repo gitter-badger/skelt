@@ -12,6 +12,7 @@ import Add from './states/basic/Add';
 import {StringOperation} from './states/string';
 import {UnixOperation} from './states/unix';
 import {LogicOperation} from './states/logic';
+import {FileioOperation} from './states/fileio';
 
 export default class SkeltGraph {
   constructor() {
@@ -197,6 +198,14 @@ export default class SkeltGraph {
     });
   }
 
+  toString(any, id = "toString") {
+    return this._register({
+      id: id,
+      state: StringOperation.ToString,
+      children: [any],
+    });
+  }
+
   // ===========================================
   //  Unix Nodes
   // ===========================================
@@ -295,6 +304,17 @@ export default class SkeltGraph {
     });
   }
 
+  // ===========================================
+  //  FileIO Nodes
+  // ===========================================
+
+  readFile(path, id = "readFile") {
+    return this._register({
+      id: id,
+      state: FileioOperation.ReadFile,
+      children: [path],
+    });
+  }
 
 
   getValue(skeltNode) {

@@ -7,6 +7,7 @@ import Search from './Search';
 import Split from './Split';
 import ToLowerCase from './ToLowerCase';
 import ToUpperCase from './ToUpperCase';
+import ToString from './ToString';
 
 export const StringOperation = {
   Replace: new Replace(),
@@ -18,4 +19,5 @@ export const StringOperation = {
   Split: new Split(),
   ToLowerCase: new ToLowerCase(),
   ToUpperCase: new ToUpperCase(),
+  ToString: new ToString(),
 }
