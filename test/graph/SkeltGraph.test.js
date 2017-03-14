@@ -66,6 +66,48 @@ export const SkeltGraphTest = describe('SkeltGraph test', function() {
     });
   });
 
+  describe('logic test', function() {
+    it('and', function() {
+      const sg = new SkeltGraph();
+      let a = sg.constant(true);
+      let b = sg.constant(false);
+      let c = sg.constant(true);
+      let d = sg.and(a, b);
+      let e = sg.and(a, c);
+      d.execute();
+      e.execute();
+      assert.equal(d.getValue(), false);
+      assert.equal(e.getValue(), true);
+    });
+
+    it('or', function() {
+      const sg = new SkeltGraph();
+      let a = sg.constant(true);
+      let b = sg.constant(false);
+      let c = sg.constant(false);
+      let d = sg.or(a, b);
+      let e = sg.or(b, c);
+      d.execute();
+      e.execute();
+      assert.equal(d.getValue(), true);
+      assert.equal(e.getValue(), false);
+    });
+
+    it('equal', function() {
+      const sg = new SkeltGraph();
+      let a = sg.constant("aiueo");
+      let b = sg.constant("kakikukeko");
+      let c = sg.constant("aiueo");
+      let d = sg.equal(a, b);
+      let e = sg.equal(a, c);
+      d.execute();
+      e.execute();
+      assert.equal(d.getValue(), false);
+      assert.equal(e.getValue(), true);
+    });
+
+  });
+
   describe('playground', function() {
     it ('complex graph', function() {
       const sg = new SkeltGraph();
@@ -79,6 +121,5 @@ export const SkeltGraphTest = describe('SkeltGraph test', function() {
       let cp = sg.childProcess(command);
       cp.execute();
     });
-
   });
 });
