@@ -2,13 +2,13 @@
   <img src="https://cdn.rawgit.com/RyosukeCla/skelt/51777efe/skelt.svg" width="100%" height="200"/>
   
 </p>
----
+___
 <p align="center">
   <a href="https://travis-ci.org/RyosukeCla/skelt" align="center">
     <img src="https://travis-ci.org/RyosukeCla/skelt.svg?branch=master" width="100"/>
   </a>
 </p>
----
+___
 
 
 ## Your original template builder CLI made easy
