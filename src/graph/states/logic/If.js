@@ -4,7 +4,7 @@ import Data, {DataTypes, DataTypeOf} from '../../core/Data';
 export default class If extends State {
   constructor() {
     super(
-      makeInvalidMessage("If", ["boolean", "any"]),
+      makeInvalidMessage("If", ["any", "any"]),
       DataTypes.unknown
     );
   }
@@ -12,7 +12,7 @@ export default class If extends State {
   isValid(childrenNode) {
     const nodesNum = childrenNode.length;
     if (nodesNum == 2) {
-      if (isValidDataTypes(childrenNode, [DataTypes.boolean, DataTypes.any])) {
+      if (isValidDataTypes(childrenNode, [DataTypes.any, DataTypes.any])) {
         return true;
       }
     }
@@ -21,8 +21,8 @@ export default class If extends State {
 
   execute(childrenNode) {
     childrenNode[0].execute();
-    const isTrue = childrenNode[0].data.value;
-    if (isTrue) {
+
+    if (childrenNode[0].data.value) {
       childrenNode[1].execute();
       const res = childrenNode[1].data.value;
       return new Data(res, DataTypeOf(res));
