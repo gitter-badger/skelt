@@ -13,6 +13,8 @@ export default class Node {
     this._data = data;
     this._state = state;
     this._children = children;
+
+    this._isActivated = false;
   }
 
   get data() {
@@ -23,7 +25,15 @@ export default class Node {
     return this._state;
   }
 
+  inactivate() {
+    this._isActivated = false;
+  }
+
   execute() {
-    this._data = this._state.execute(this._children);
+    if (this._isActivated == false) {
+      this._data = this._state.execute(this._children);
+
+      this._isActivated = true;
+    }
   }
 }

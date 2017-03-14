@@ -14,6 +14,10 @@ export default class Graph {
   }
 
   execute(accessor, verbose = false) {
+    for (let i in this._nodes) {
+      this._nodes[i].inactivate();
+    }
+
     this._nodes[accessor.uuid].execute();
 
     if (verbose == true) {
