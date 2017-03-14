@@ -67,6 +67,20 @@ export const SkeltGraphTest = describe('SkeltGraph test', function() {
   });
 
   describe('logic test', function() {
+    it('if', function() {
+      const sg = new SkeltGraph();
+      let a = sg.constant(true);
+      let b = sg.constant(false);
+      let c = sg.constant("Hello");
+      let add = sg.add(c, sg.constant(", world!"));
+      let d = sg.if(a, add);
+      let e = sg.if(b, add);
+      d.execute();
+      e.execute();
+      assert.equal(d.getValue(), "Hello, world!");
+      assert.equal(e.getValue(), false);
+    });
+
     it('and', function() {
       const sg = new SkeltGraph();
       let a = sg.constant(true);
